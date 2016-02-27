@@ -19,7 +19,7 @@ bash 'Create database HR and its objects' do
   user 'root'
 
   code <<-EOH
-    mysql -u root < "/tmp/#{theFile}" 
+    mysql -u root -proot < "/tmp/#{theFile}"       
   EOH
   
 end
