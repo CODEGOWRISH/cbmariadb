@@ -29,8 +29,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box = 'oraclelinux-7-x86_64'
   #config.vm.box_url = 'http://cloud.terry.im/vagrant/oraclelinux-7-x86_64.box'
   # This is the box manually created from original box after installing chef on it
-  config.vm.box = 'oraclelinux-7-x86_64-chef'
-
+  #config.vm.box = 'oraclelinux-7-x86_64-chef'
+  config.vm.box = 'oraclelinux-7-x86_64-chef-and-deps'
+  
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
   # any other machines on the same network, but cannot be accessed (through this
@@ -90,8 +91,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-
-      'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]'
+      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]'
+      'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]'
     ]
   end
 

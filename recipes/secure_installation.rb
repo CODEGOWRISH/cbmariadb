@@ -27,8 +27,7 @@ bash 'Secure the installation' do
     EOF
 
     /etc/init.d/mysql restart
-    
+
   EOH
 
 end
-
