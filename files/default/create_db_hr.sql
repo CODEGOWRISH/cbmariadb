@@ -17,11 +17,18 @@ CREATE USER 'hruserr'@'%' identified by 'hruserr';
 CREATE DATABASE hr;
 USE hr;
 
+-- Create tablespace
+CREATE TABLESPACE 'HR_TS'
+	ADD DATAFILE 'HR_TS1.ibd';
+	-- FILE_BLOCK_SIZE is not required for NON-COMPRESSED tables
+
 -- Create tables
 CREATE TABLE dept (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(20) 
+	TABLESPACE HR_TS1
 	PRIMARY KEY (id));
 
-CREATE TABLE emp  (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(20), address VARCHAR(60), phone_number VARCHAR(15)  
+CREATE TABLE emp  (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(20), address VARCHAR(60), phone_number VARCHAR(15)
+	TABLESPACE HR_TS1  
 	PRIMARY KEY (id),
 	FOREIGN KEY (id) REFERENCES dept(id) ON UPDATE CASCADE ON DELETE RESTRICT,
 	INDEX (name)

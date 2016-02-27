@@ -12,6 +12,10 @@ default['softwareStageDir'] = '/mariadb-rpms'
 #'MariaDB-10.1.11-centos7-x86_64-common.rpm'
 #]
 
+default['packagesToRemove'] = [
+  'postfix'
+]
+
 default['preReqPakages'] = [
   'boost-program-options',
   'unixODBC',

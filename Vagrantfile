@@ -31,6 +31,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # This is the box manually created from original box after installing chef on it
   #config.vm.box = 'oraclelinux-7-x86_64-chef'
   config.vm.box = 'oraclelinux-7-x86_64-chef-and-deps'
+
+  # Gowrish customize
+  config.ssh.password = 'vagrant'
   
   # Assign this VM to a host-only network IP, allowing you to access it
   # via the IP. Host-only networks can talk to the host machine as well as
@@ -48,6 +51,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
+
+  # Gowrish customize
   config.vm.synced_folder "../../stage/MariaDB", "/mariadb-rpms"
 
   # Provider-specific configuration so you can fine-tune various
@@ -64,6 +69,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   # View the documentation for the provider you're using for more
   # information on available options.
+
+  # Gowrish customize
+  config.vm.provider :virtualbox do |vb|
+  # Don't boot with headless mode
+  #   vb.gui = true
+  # Use VBoxManage to customize the VM. For example to change memory:
+     vb.customize ["modifyvm", :id, "--memory", "1024"]
+     vb.customize ["modifyvm", :id, "--cpus", "1"]
+  end
 
   # The path to the Berksfile to use with Vagrant Berkshelf
   # config.berkshelf.berksfile_path = "./Berksfile"

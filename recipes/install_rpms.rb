@@ -39,3 +39,9 @@ node[:rpmsToInstall].each do |rpmFile|
   #end
 
 end
+
+# Start mysql service 
+service 'mysql' do
+  action [:enable, :start]
+end
+
