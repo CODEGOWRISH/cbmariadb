@@ -29,3 +29,8 @@ template node[:serverConfigFile] do
     })
 
 end
+
+# Start mysql service 
+service 'mysql' do
+  action [:restart]
+end

@@ -28,9 +28,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box = 'chef/ubuntu-14.04'
   #config.vm.box = 'oraclelinux-7-x86_64'
   #config.vm.box_url = 'http://cloud.terry.im/vagrant/oraclelinux-7-x86_64.box'
-  # This is the box manually created from original box after installing chef on it
+  # Below are the boxes manually created from original box after installing chef on it
   #config.vm.box = 'oraclelinux-7-x86_64-chef'
   config.vm.box = 'oraclelinux-7-x86_64-chef-and-deps'
+  #config.vm.box = 'oraclelinux-7-x86_64-chef-and-mariadb'
 
   # Gowrish customize
   config.ssh.password = 'vagrant'
@@ -105,10 +106,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::create_dirs_files]', recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]', 'recipe[cbmariadb::create_db_hr]'
+      # This line has the full sequence
+      'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]', 'recipe[cbmariadb::create_dirs_files]', 'recipe[cbmariadb::create_server_cnf]', 'recipe[cbmariadb::create_db_hr]'
+      # This line onwards are custom ones
+      #'recipe[cbmariadb::create_server_cnf]', 'recipe[cbmariadb::create_db_hr]'
+      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::create_dirs_files]', 'recipe[cbmariadb::create_server_cnf]', 'recipe[cbmariadb::create_db_hr]'
+      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::create_dirs_files]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]', 'recipe[cbmariadb::create_db_hr]'
       #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]'
       #'recipe[cbmariadb::create_db_hr]'
-      'recipe[cbmariadb::create_dirs_files]', 'recipe[cbmariadb::create_server_cnf]'
+      #'recipe[cbmariadb::create_dirs_files]', 'recipe[cbmariadb::create_server_cnf]'
     ]
   end
 
