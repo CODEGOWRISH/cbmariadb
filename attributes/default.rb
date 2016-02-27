@@ -40,5 +40,26 @@ default['rpmsToInstall'] = [
 'MariaDB-10.1.11-centos7-x86_64-test.rpm'
 ]
 
+# Config files
+default['configFileDir'] = '/etc/my.cnf.d'
+default['serverConfigFile'] = '/etc/my.cnf.d/server.cnf'
+default['clientConfigFile'] = '/etc/my.cnf.d/client.cnf'
+
+# Directories - datadir, binlog dir, db dir
+default['dirList'] = {  
+                        'rootBase'   => '/data',
+                        'mysqlBase'  => '/data/mysql',
+                        'dataDir'    => '/data/mysql/data',
+                        'binlogDir'  => '/data/mysql/binlog',
+                        'dbDir'      => '/data/mysql/db',
+                        'hrDbDir'    => '/data/mysql/db/hr'
+                     }
+
+default['rootBase']   = '/data'
+default['mysqlBase']  = '/data/mysql'
+default['dataDir']    = '/data/mysql/data'
+default['binlogDir']  = '/data/mysql/binlog'
+default['hrDbDir']    = '/data/mysql/db/hr'
+
 # HR DB SQL File
 default['crDbHrSqlFile'] = 'create_db_hr.sql'
