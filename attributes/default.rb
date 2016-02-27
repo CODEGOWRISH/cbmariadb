@@ -55,11 +55,9 @@ default['dirList'] = {
                         'hrDbDir'    => '/data/mysql/db/hr'
                      }
 
-default['rootBase']   = '/data'
-default['mysqlBase']  = '/data/mysql'
-default['dataDir']    = '/data/mysql/data'
-default['binlogDir']  = '/data/mysql/binlog'
-default['hrDbDir']    = '/data/mysql/db/hr'
+default['binlogName']     = 'mysql-binlog'
+default['expireLogDays']  = '2' 
+default['binlogFormat']   = 'mixed'
 
 # HR DB SQL File
 default['crDbHrSqlFile'] = 'create_db_hr.sql'

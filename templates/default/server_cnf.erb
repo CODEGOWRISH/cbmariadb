@@ -10,10 +10,10 @@
 
 # this is only for the mysqld standalone daemon
 [mysqld]
-log-bin=mysql-bin
-expire_logs_days = 2
-# binary logging format – mixed recommended
-binlog_format=mixed
+log-bin = <%= @binlogName %>
+expire_logs_days = <%= @expireLogDays %>
+# binary logging format mixed recommended
+binlog_format = <%= @binlogFormat %>
 
 #
 # * Galera-related settings
