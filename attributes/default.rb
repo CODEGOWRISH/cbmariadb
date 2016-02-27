@@ -39,3 +39,6 @@ default['rpmsToInstall'] = [
 'MariaDB-10.1.11-centos7-x86_64-shared.rpm',
 'MariaDB-10.1.11-centos7-x86_64-test.rpm'
 ]
+
+# HR DB SQL File
+default['crDbHrSqlFile'] = 'create_db_hr.sql'

@@ -105,8 +105,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]'
-      'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]'
+      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]', 'recipe[cbmariadb::secure_installation]', 'recipe[cbmariadb::create_db_hr]'
+      #'recipe[cbmariadb::default]', 'recipe[cbmariadb::install_rpms]'
+      'recipe[cbmariadb::create_db_hr]'
     ]
   end
 
