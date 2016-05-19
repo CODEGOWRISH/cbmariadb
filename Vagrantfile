@@ -33,7 +33,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = 'oraclelinux-7-x86_64-chef-and-deps'
   #config.vm.box = 'oraclelinux-7-x86_64-chef-and-mariadb'
 
-  # Gowrish customize
   config.ssh.password = 'vagrant'
   
   # Assign this VM to a host-only network IP, allowing you to access it
@@ -53,7 +52,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
-  # Gowrish customize
   config.vm.synced_folder "../../stage/MariaDB", "/mariadb-rpms"
 
   # Provider-specific configuration so you can fine-tune various
